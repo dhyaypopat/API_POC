@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "f7ef5ea6-9713-4b1b-a85f-fcac5a97ee2b",
+		"name": "4 Auth 2.0 Gmail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21938664",
+		"_collection_link": "https://martian-satellite-123201.postman.co/workspace/API-POC~a306d0e3-1c44-40e7-af8f-4a114b4518a8/collection/21938664-f7ef5ea6-9713-4b1b-a85f-fcac5a97ee2b?action=share&source=collection_link&creator=21938664"
+	},
+	"item": [
+		{
+			"name": "Get Messages",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "https://www.googleapis.com/auth/gmail.modify",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/auth",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://accounts.google.com/o/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "tokenName",
+							"value": "Gmail",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Message by ID",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "ya29.a0AfB_byDeaSfYCe9PpNke7JmMTUVh1exl5GZV3FreCTQO2w_xfMNKbXrL6fPQyzdffXuYXfh8bqMjHs_Z3liokgNpuyaCq8WwlSJKUbI1vSLsWJcVUSP540EBD1NuuwdQHLQWpcUcAUOUWeyBYVpt7w6hB74QaapwdAaCgYKAYESARMSFQGOcNnCFrbaLm_6fbEltwf4QahwUA0169",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "https://www.googleapis.com/auth/gmail.modify",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://accounts.google.com/o/oauth2/auth",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://accounts.google.com/o/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "tokenName",
+							"value": "Gmail",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages/1890d1ecb63adc4e",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"messages",
+						"1890d1ecb63adc4e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

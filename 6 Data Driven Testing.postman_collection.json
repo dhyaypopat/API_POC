@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "3edb4869-7726-4b5e-92ec-1a1a976eac22",
+		"name": "6 Data Driven Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21938664",
+		"_collection_link": "https://martian-satellite-123201.postman.co/workspace/API-POC~a306d0e3-1c44-40e7-af8f-4a114b4518a8/collection/21938664-3edb4869-7726-4b5e-92ec-1a1a976eac22?action=share&source=collection_link&creator=21938664"
+	},
+	"item": [
+		{
+			"name": "Data Driven and its Validations using CSV and JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test Case 01 Verify the Data is added Sucessfully with Status Code 201",
+							"",
+							"pm.test(\"TC_01 Verify the Data is Added Sucessfully\", function () ",
+							"{",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"// Test Case 02 Verifying the Data with Tilte",
+							"",
+							"pm.test(\"TC_02 Verify the Title\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.title).to.eql(data['Title']);",
+							"});",
+							"",
+							"//",
+							"",
+							"pm.test(\"TC_03 Verify the Body\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.body).to.eql(data['Body'])",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userid\" : \"{{ID}}\",\n    \"title\" : \"{{Title}}\",\n    \"body\" : \"{{Body}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

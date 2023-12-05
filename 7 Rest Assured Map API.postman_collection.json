@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "db405cd2-0d92-4365-a78e-36cf5bff003b",
+		"name": "7 Rest Assured Map API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21938664",
+		"_collection_link": "https://martian-satellite-123201.postman.co/workspace/API-POC~a306d0e3-1c44-40e7-af8f-4a114b4518a8/collection/21938664-db405cd2-0d92-4365-a78e-36cf5bff003b?action=share&source=collection_link&creator=21938664"
+	},
+	"item": [
+		{
+			"name": "Add Place",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"let res = pm.response.json()",
+							"console.log(res.place_id);",
+							"",
+							"pm.collectionVariables.set(\"place_id\",res.place_id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"location\": {\n        \"lat\": -38.383494,\n        \"lng\": 33.427362\n    },\n    \"accuracy\": 50,\n    \"name\": \"Dhyay Popat\",\n    \"phone_number\": \"(+91) 9409414885\",\n    \"address\": \"Simform Solutions\",\n    \"types\": [\n        \"Bopal\",\n        \"Ambli\"\n    ],\n    \"website\": \"http://google.com\",\n    \"language\": \"English\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"add",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Place",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/get/json/?key=qaclick123&place_id={{place_id}}",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"get",
+						"json",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						},
+						{
+							"key": "place_id",
+							"value": "{{place_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Place",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"place_id\":{{place_id}},\n    \"address\":\"Updated the address\",\n    \"key\":\"qaclick123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/update/json",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"update",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Place",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"place_id\":\"45d9a7b7d8e32c750c6dddea26d5eb78\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123",
+					"protocol": "https",
+					"host": [
+						"rahulshettyacademy",
+						"com"
+					],
+					"path": [
+						"maps",
+						"api",
+						"place",
+						"delete",
+						"json"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "qaclick123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "place_id",
+			"value": ""
+		}
+	]
+}
